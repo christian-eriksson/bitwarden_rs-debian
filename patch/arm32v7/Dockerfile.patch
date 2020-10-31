@@ -27,7 +27,7 @@
      mkdir -pv /tmp/dpkg && \
      cd /tmp/dpkg && \
      apt-get download libmariadb-dev-compat:amd64 && \
-@@ -90,64 +90,45 @@
+@@ -90,64 +90,46 @@
  RUN rustup target add armv7-unknown-linux-gnueabihf
  
  # Builds your dependencies and removes the
@@ -104,6 +104,7 @@
 +
 +COPY debian/control /bitwarden_package/DEBIAN/control
 +COPY debian/postinst /bitwarden_package/DEBIAN/postinst
++COPY debian/postrm /bitwarden_package/DEBIAN/postrm
 +COPY debian/conffiles /bitwarden_package/DEBIAN/conffiles
 +COPY git/Rocket.toml /bitwarden_package/etc/bitwarden_rs
 +COPY debian/config.env /bitwarden_package/etc/bitwarden_rs

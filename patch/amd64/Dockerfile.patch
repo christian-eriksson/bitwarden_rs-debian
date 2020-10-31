@@ -1,6 +1,6 @@
---- ./git/docker/amd64/Dockerfile	2020-10-11 13:07:49.749465588 +0200
-+++ ./Dockerfile	2020-10-11 14:00:43.341362012 +0200
-@@ -34,72 +34,68 @@
+--- ./git/docker/amd64/Dockerfile	2020-10-31 02:17:18.592779191 +0100
++++ ./Dockerfile	2020-10-31 12:51:57.715858831 +0100
+@@ -34,72 +34,69 @@
      --no-install-recommends \
      libmariadb-dev \
      libpq-dev \
@@ -87,6 +87,7 @@
 +
 +COPY debian/control /bitwarden_package/DEBIAN/control
 +COPY debian/postinst /bitwarden_package/DEBIAN/postinst
++COPY debian/postrm /bitwarden_package/DEBIAN/postrm
 +COPY debian/conffiles /bitwarden_package/DEBIAN/conffiles
 +COPY git/Rocket.toml /bitwarden_package/etc/bitwarden_rs
 +COPY debian/config.env /bitwarden_package/etc/bitwarden_rs
