@@ -3,6 +3,12 @@ userExists=$(getent passwd bitwarden)
 if [ -z "$userExists" ]; then
     DIR_MODE=0700 adduser --system --home /var/lib/bitwarden_rs bitwarden
 fi
+groupExsists=$(getent group bitwarden)
+if [ -z "$groupExists" ]; then
+    groupadd bitwarden
+    usermod -a -G bitwarden bitwarden
+fi
 chmod 700 /var/lib/bitwarden_rs
 chmod 600 /etc/bitwarden_rs/config.env
-chmod 600 /etc/bitwarden_rs/Rocket.toml
+chmod 640 /etc/bitwarden_rs/Rocket.toml
+chown root:bitwarden /etc/bitwarden_rs/Rocket.toml
