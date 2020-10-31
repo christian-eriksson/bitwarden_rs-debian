@@ -1,3 +1,5 @@
 #!/bin/sh
-userdel bitwarden
-groupdel bitwarden
+userExists=$(getent passwd bitwarden)
+if [ -n "$userExists" ]; then
+    userdel bitwarden
+fi
